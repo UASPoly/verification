@@ -20,3 +20,20 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])
+    ->name('programme.')
+    ->prefix('/programme')
+    ->group(function (){
+        Route::get('/{programmeId}/students', 'ProgrammeController@students')->name('students');
+        Route::post('/student/{studentId}/certificate', 'ProgrammeController@uploadCertificate')->name('student.certificate');
+        Route::post('/certificate/{certificateId}/update', 'ProgrammeController@updateCertificate')->name('student.certificate.update');
+   
+});    
+
+Route::name('certificate.')
+->prefix('/certificate')
+->group(function (){
+    Route::post('/search', 'CertificateController@search')->name('search');
+    Route::get('/{certificateId}/view', 'CertificateController@view')->name('view');
+});

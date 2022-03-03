@@ -23,9 +23,9 @@ class CreateCertificatesTable extends Migration
             ->on('students')
             ->delete('restrict')
             ->update('cascade');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->string('certificate_no');
-            $table->date('issued_at');
+            $table->date('date_issued');
             $table->timestamps();
         });
     }

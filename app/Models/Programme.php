@@ -16,4 +16,15 @@ class Programme extends BaseModel
     {
         return $this->belongsTo(Department::class);
     }
+
+    public function certificates()
+    {
+        $numbers = 0;
+        foreach($this->students as $student){
+            if($student->certificate){
+                $numbers += 1;
+            }
+        }
+        return $numbers;
+    }
 }

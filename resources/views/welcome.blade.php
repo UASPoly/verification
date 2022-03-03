@@ -65,9 +65,10 @@ https://templatemo.com/tm-541-host-cloud
             <div class="header-text caption">
               <h2>Verify Your Certificate</h2>
               <div id="search-section">
-              	<form id="suggestion_form" name="gs" method="get" action="#">
+              	<form id="suggestion_form" name="gs" method="post" action="{{route('certificate.search')}}">
+                @csrf
                 <div class="searchText">
-                    <input type="text" name="q" class="searchText" placeholder="Enter your certificate No here..." autocomplete="on">
+                    <input type="text" name="certificate_no" class="searchText" placeholder="Enter your certificate No here..." autocomplete="on">
                 </div>
                     <input type="submit" name="results" class="main-button" value="Verify">
                  </form>

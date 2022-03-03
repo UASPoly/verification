@@ -40,15 +40,16 @@ https://templatemo.com/tm-541-host-cloud
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
-    <header class="">
+    <header >
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>UAS <em>POLY</em></h2></a>
+          <a class="navbar-brand" href="{{url('/')}}"><h2>UAS <em>POLY</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="functional-buttons">
             <ul>
+            <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                 <li><a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
