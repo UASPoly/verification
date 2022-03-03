@@ -15,6 +15,15 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
+            $table->integer('college_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('colleges')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }

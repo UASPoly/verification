@@ -15,6 +15,17 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->integer('student_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('students')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->text('image');
+            $table->string('certificate_no');
+            $table->date('issued_at');
             $table->timestamps();
         });
     }

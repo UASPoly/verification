@@ -15,6 +15,15 @@ class CreateProgrammesTable extends Migration
     {
         Schema::create('programmes', function (Blueprint $table) {
             $table->id();
+            $table->integer('department_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('departments')
+            ->delete('restrict')
+            ->update('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }
